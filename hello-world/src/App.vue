@@ -4,6 +4,9 @@
   <div v-html="greet"></div>
   <!-- example XSS attack -->
   <div v-html="hack"></div>
+  <!-- binding to attributes -->
+  <h2 v-bind:id="headingId">Hey</h2>
+  <button v-bind:disabled="isDisabled">Bind</button>
 </template>
 
 <script>
@@ -18,7 +21,9 @@ export default {
     return{
       greet:'<b>Hello</b> ',
       name:"Imen",
-      hack: `<a href="#" onClick="alert('hacked 3:)')">Click to win a prize!<a/>`
+      hack: `<a href="#" onClick="alert('hacked 3:)')">Click to win a prize!<a/>`,
+      headingId: 'heading',
+      isDisabled: false
     }
   }
 }
