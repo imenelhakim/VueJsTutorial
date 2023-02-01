@@ -1,6 +1,9 @@
 <template>
   <div> {{ name }}</div>
-  <div v-text="greet"></div>
+  <!-- binding html -->
+  <div v-html="greet"></div>
+  <!-- example XSS attack -->
+  <div v-html="hack"></div>
 </template>
 
 <script>
@@ -13,8 +16,9 @@ export default {
   // }
   data(){
     return{
-      greet:'Hello ',
-      name:"Imen"
+      greet:'<b>Hello</b> ',
+      name:"Imen",
+      hack: `<a href="#" onClick="alert('hacked 3:)')">Click to win a prize!<a/>`
     }
   }
 }
