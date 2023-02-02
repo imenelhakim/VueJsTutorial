@@ -1,9 +1,8 @@
 <template>
   
   <!-- conditional rendering -->
-  <conditional-rendering></conditional-rendering>
-  <br /><br /><br />
-
+  <conditional-rendering showCdtR :message="message"></conditional-rendering>
+  <div v-show="display">
   <div> {{ name }}</div>
   <!-- binding html -->
   <div v-html="greet"></div>
@@ -32,6 +31,7 @@
   <h2 v-bind:style="headerStyleObject">Style object</h2>
   <div v-bind:style="[baseObj,successObj]">Success Style Object</div>
   <div :style="[baseObj,successObj]">Success Style Object without v-bind</div>
+</div>
 
 </template>
 
@@ -70,7 +70,10 @@ export default {
         color:'green',
         backgroundColor: 'lightgreen',
         border: '1px solid green'
-      }
+      },
+      display:false,
+      showCdtR: true,
+      message: 'hello from parent'
     }
   }
 }
