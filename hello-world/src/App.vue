@@ -22,6 +22,11 @@
     new: !isSoldOut,
     'sold-out': isSoldOut
   }">Array conditional rendering</h2>
+  <!-- binding styles -->
+  <h2 v-bind:style="{color: highlightColor, 'font-size': headerSize + 'px', padding: '20px'}">Inline style</h2>
+  <h2 v-bind:style="headerStyleObject">Style object</h2>
+  <div v-bind:style="[baseObj,successObj]">Success Style Object</div>
+
 </template>
 
 <script>
@@ -41,7 +46,23 @@ export default {
       isDisabled: false,
       status:'danger',
       isPromoted: true,
-      isSoldOut: true
+      isSoldOut: true,
+      highlightColor: 'orange',
+      headerSize: 50,
+      headerStyleObject:{
+        color:'blue',
+        fontSize: '30px',
+        padding:'20px'
+      },
+      baseObj:{
+        fontSize: '50px',
+        padding: '10px'
+      },
+      successObj:{
+        color:'green',
+        backgroundColor: 'lightgreen',
+        border: '1px solid green'
+      }
     }
   }
 }
