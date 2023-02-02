@@ -31,16 +31,20 @@
   <h2 v-bind:style="headerStyleObject">Style object</h2>
   <div v-bind:style="[baseObj,successObj]">Success Style Object</div>
   <div :style="[baseObj,successObj]">Success Style Object without v-bind</div>
-</div>
+  </div>
+
+  <!-- pass props from child to parent -->
+  <child-to-parent :newMessage="newMessage" @update:message="updateMessage" />
 
 </template>
 
 <script>
 import ConditionalRendering from './components/ConditionalRendering.vue'
+import ChildToParent from './components/ChildToParent.vue'
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  components: { ConditionalRendering },
+  components: { ConditionalRendering, ChildToParent },
   name: 'App',
   // components: {
   //   HelloWorld
@@ -73,7 +77,14 @@ export default {
       },
       display:false,
       showCdtR: true,
-      message: 'hello from parent'
+      message: 'hello from parent',
+      newMessage: "give me props"
+    }
+  },
+  methods:{
+    updateMessage(value){
+      this.newMessage = value
+      console.log(value);
     }
   }
 }
