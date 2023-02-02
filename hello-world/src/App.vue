@@ -1,4 +1,9 @@
 <template>
+  
+  <!-- conditional rendering -->
+  <conditional-rendering></conditional-rendering>
+  <br /><br /><br />
+
   <div> {{ name }}</div>
   <!-- binding html -->
   <div v-html="greet"></div>
@@ -26,13 +31,16 @@
   <h2 v-bind:style="{color: highlightColor, 'font-size': headerSize + 'px', padding: '20px'}">Inline style</h2>
   <h2 v-bind:style="headerStyleObject">Style object</h2>
   <div v-bind:style="[baseObj,successObj]">Success Style Object</div>
+  <div :style="[baseObj,successObj]">Success Style Object without v-bind</div>
 
 </template>
 
 <script>
+import ConditionalRendering from './components/ConditionalRendering.vue'
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
+  components: { ConditionalRendering },
   name: 'App',
   // components: {
   //   HelloWorld
